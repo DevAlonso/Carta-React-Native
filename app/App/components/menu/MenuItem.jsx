@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { View, Text, StyleSheet, TextInput } from 'react-native';
-import { TouchableOpacity } from 'react-native';
+
 import ModifyItem from "../item/ModifyItem";
 import RemoveItem from "../item/RemoveItem";
 import { updateProducto } from "../../services/api";

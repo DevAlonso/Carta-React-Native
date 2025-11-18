@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native';
+import MapView, { Marker } from 'react-native-maps'
 
 function Footer() {
     const handlePress = () => {
@@ -6,22 +7,29 @@ function Footer() {
     };
 
     return (
+
         <View style={styles.container}>
             <TouchableOpacity onPress={handlePress}>
                 <Text style={styles.link}>Visit our website</Text>
             </TouchableOpacity>
             <Text style={styles.address}>123 Free Code Camp</Text>
 
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3500.7!2d-15.61269!3d27.97037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDU4JzEzLjMiTiAxNcKwMzYnNDUuNyJX!5e0!3m2!1sen!2ses!4v1234567890"
-                width="100%"
-                height="200"
-                style={{ border: 0, borderRadius: 8, marginTop: 10 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-            />
+            <MapView
+                style={styles.map}
+                initialRegion={{
+                    latitude: 27.97037,
+                    longitude: -15.61269,
+                    latitudeDelta: 0.005,
+                    longitudeDelta: 0.005,
+                }}
+            >
+                <Marker
+                    coordinate={{ latitude: 27.97037, longitude: -15.61269 }}
+                />
+            </MapView>
+
         </View>
+
     );
 }
 
@@ -41,6 +49,10 @@ const styles = StyleSheet.create({
     address: {
         marginBottom: 10,
         textAlign: 'center'
+    },
+    map: {
+        width: '100%',
+        height: 200
     }
 });
 
