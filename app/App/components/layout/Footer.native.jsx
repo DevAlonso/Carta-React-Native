@@ -7,7 +7,6 @@ function Footer() {
     };
 
     return (
-
         <View style={styles.container}>
             <TouchableOpacity onPress={handlePress}>
                 <Text style={styles.link}>Visit our website</Text>
@@ -29,7 +28,6 @@ function Footer() {
             </MapView>
 
         </View>
-
     );
 }
 
